@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { DateTime } from 'luxon';
 
 const presupuestoSchema = new mongoose.Schema ({
     monto: {
@@ -15,15 +14,6 @@ const presupuestoSchema = new mongoose.Schema ({
         ref: 'usuarios',
         required: true
     },
-    fecha: {
-        type: Date,
-        default: Date.now
-    }
-},{
-    timestamps: {
-        currentTime: () => DateTime.now().setZone('America/Bogota').toJSDate()
-    },
-    versionKey: false,
-});
+},  { versionKey: false, timestamps: true });
 
 export default mongoose.model('presupuestos', presupuestoSchema) 

@@ -33,7 +33,7 @@ export const registro = async (req, res) => {
     return res.status(201).json(userSaved);
   } catch (error) {
     logger.error(`Error: ${error.message}`);
-  }
+  }  
 };
 
 //Login de usuario

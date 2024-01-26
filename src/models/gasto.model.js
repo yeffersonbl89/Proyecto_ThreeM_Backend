@@ -19,10 +19,8 @@ const gastoSchema = new mongoose.Schema ({
         ref: 'categorias',
         required: true
     }
-},{
-    timestamps: {
-        currentTime: () => DateTime.now().setZone('America/Bogota').toJSDate()
-    },
-    versionKey: false,
-});
+
+
+}, { versionKey: false, timestamps: true });
+
 export default mongoose.model('gastos', gastoSchema)  

@@ -1,4 +1,4 @@
-import Presupuesto from "../models/presupuesto.model.js"; 
+import Presupuesto from "../models/presupuesto.model.js";  
 
 export const registroPresupuesto = async (req, res) => {
   const { monto } = req.body;
@@ -9,9 +9,9 @@ export const registroPresupuesto = async (req, res) => {
       usuario: req.user.id,      
     });
 
-    const savedPresupuesto = await newPresupuesto.save(); //Guarda el presupuesto
-
-    return res.status(201).json(savedPresupuesto);
+    const presupuestoSaved = await newPresupuesto.save(); //Guarda el presupuesto
+    
+    return res.status(201).json(presupuestoSaved);
   } catch (error) {
     logger.error(`Error: ${error.message}`);
   }
