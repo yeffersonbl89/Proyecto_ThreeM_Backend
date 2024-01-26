@@ -1,10 +1,7 @@
 import mongoose from "mongoose";
+import { DateTime } from 'luxon';
 
-const gastoSchema = new mongoose.Schema ({
-    fecha: {
-        type: Date,
-        required: true,
-    },
+const gastoSchema = new mongoose.Schema ({    
     presupuesto: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'presupuestos'
@@ -19,9 +16,13 @@ const gastoSchema = new mongoose.Schema ({
     },
     categoria:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'categoria',
+        ref: 'categorias',
         required: true
     }
-})
-
-export default mongoose.model('gastos', gastoSchema)
+},{
+    timestamps: {
+        currentTime: () => DateTime.now().setZone('America/Bogota').toJSDate()
+    },
+    versionKey: false,
+});
+export default mongoose.model('gastos', gastoSchema)  

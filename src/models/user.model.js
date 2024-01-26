@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { DateTime } from 'luxon';
 
 const userSchema = new mongoose.Schema({
     usuario: {
@@ -22,9 +23,12 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: 'usuario',
     }
-},{
-    timestamps: true,
+}, {
+    timestamps: {
+        currentTime: () => DateTime.now().setZone('America/Bogota').toJSDate()
+    },
     versionKey: false,
-})
+});
+
 
 export default mongoose.model('usuarios', userSchema)

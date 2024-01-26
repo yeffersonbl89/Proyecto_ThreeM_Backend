@@ -1,12 +1,11 @@
-import Presupuesto from "../models/presupuesto.model.js";
+import Presupuesto from "../models/presupuesto.model.js"; 
 
 export const registroPresupuesto = async (req, res) => {
-  const { monto, usuario } = req.body;
+  const { monto } = req.body;
 
   try {
     const newPresupuesto = new Presupuesto({
       monto,
-      fecha: Date.now(),
       usuario: req.user.id,      
     });
 

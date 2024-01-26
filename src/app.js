@@ -3,6 +3,7 @@ import morgan from "morgan"; // muestra un registro de solicitudes HTTP
 import cookieParcer from "cookie-parser"; // Permite convertir las cookies en archivo json
 import authRoutes from "./routes/auth.routes.js";
 import presupuestoRoutes from "./routes/presupuesto.routes.js"
+import  gastoRoutes  from "./routes/gasto.routes.js";
 
 const app = express();
 
@@ -19,5 +20,6 @@ app.use((err, req, res, next) => {
 
 app.use("/api", authRoutes);
 app.use("/api", presupuestoRoutes);
+app.use("/api", gastoRoutes);
 
 export default app;
