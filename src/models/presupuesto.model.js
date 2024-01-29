@@ -6,8 +6,19 @@ const presupuestoSchema = new mongoose.Schema ({
         required: true
     },
     gastos: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'gastos'
+        nombre: {
+            type: String,
+            required: true
+        },
+        monto: {
+            type: Number,
+            required: true
+        },
+        categoria:{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'categorias',
+            required: true
+        }
     }],
     usuario: {
         type: mongoose.Schema.Types.ObjectId,

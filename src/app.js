@@ -3,8 +3,6 @@ import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import authRoutes from "./routes/auth.routes.js";
 import presupuestoRoutes from "./routes/presupuesto.routes.js";
-import gastoRoutes from "./routes/gasto.routes.js";
-
 
 const app = express();
 
@@ -22,6 +20,6 @@ app.use((err, req, res, next) => {
 
 app.use("/api", authRoutes);
 app.use("/api", presupuestoRoutes);
-app.use("/api", gastoRoutes);
+
 
 export default app;
