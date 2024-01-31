@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import authRoutes from "./routes/auth.routes.js";
@@ -6,7 +7,9 @@ import presupuestoRoutes from "./routes/presupuesto.routes.js";
 
 const app = express();
 
-
+app.use(cors({
+  origin: 'http://localhost:5173', // Origen del Frontend
+}));
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cookieParser());

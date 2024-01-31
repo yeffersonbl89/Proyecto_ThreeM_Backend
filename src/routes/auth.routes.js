@@ -12,11 +12,8 @@ import { registroSchema, loginSchema } from "../schemas/auth.schemas.js";
 const router = Router();
 
 router.post("/registro", validateSchema(registroSchema), registro);
-
 router.post("/login", validateSchema(loginSchema), login);
-
 router.post("/logout", logout);
-
 router.get("/profile", authRequired, profile);
 
 export default router;

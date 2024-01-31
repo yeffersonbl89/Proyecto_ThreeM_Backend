@@ -5,6 +5,10 @@ const presupuestoSchema = new mongoose.Schema ({
         type: Number,
         required: true
     },
+    totalGastos: {
+        type: Number,
+        default: 0,
+      },
     gastos: [{
         nombre: {
             type: String,

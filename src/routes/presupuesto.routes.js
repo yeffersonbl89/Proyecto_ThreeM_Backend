@@ -5,7 +5,9 @@ import {
   getPresupuesto,
   updatePresupuesto,
   deletePresupuesto,
-  agregarGastos,  
+  agregarGastos,
+  actualizarGasto,  
+  getGastosPresupuesto,
 } from "../controllers/presupuesto.controller.js";
 import { authRequired } from "../middlewares/validateToken.js";
 
@@ -18,5 +20,7 @@ router.delete("/presupuesto/:id", authRequired, deletePresupuesto);
 router.put("/presupuesto/:id", authRequired, updatePresupuesto);
 
 router.post("/presupuesto/:id/gastos", authRequired, agregarGastos);
+router.get("/presupuesto/gastos/:id", authRequired, getGastosPresupuesto);
+router.put("/presupueso/actualizar/gasto/:id/:gastoId", authRequired, actualizarGasto);
 
 export default router;
